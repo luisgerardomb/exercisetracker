@@ -28,8 +28,18 @@ const findUser = (userData) => {
                 });
 }
 
+const findUserbyId = (userData) => {
+    return User.findById(userData)
+                .then(foundUser => foundUser)
+                .catch(error => {
+                    console.error('Error:', error);
+                    throw error;
+                });
+}
+
 module.exports = {
     getUsers,
     createUser,
-    findUser
+    findUser,
+    findUserbyId
 }
